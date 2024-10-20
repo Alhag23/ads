@@ -15,7 +15,7 @@ function scheduleDailyNotification() {
   const now = new Date();
   
   const morningTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 3, 0, 0);
-  const eveningTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 22, 35, 0);
+  const eveningTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 22, 25, 0);
 
   if (morningTime <= now) morningTime.setDate(morningTime.getDate() + 1);
   if (eveningTime <= now) eveningTime.setDate(eveningTime.getDate() + 1);
