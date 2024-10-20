@@ -1,0 +1,149 @@
+
+/* التصميم العام للصفحات من اليمين لليسار */
+body {
+    font-family: 'Cairo', sans-serif; /* خط مناسب للغة العربية */
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    direction: rtl; /* جعل الاتجاه من اليمين إلى اليسار */
+    text-align: right; /* محاذاة النص إلى اليمين */
+}
+
+/* الشريط العلوي */
+header {
+    background-color: #00ffff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* الحاويات الأساسية */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* تنسيق العناوين */
+h1, h2, h3 {
+    color: #009688;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* تنسيق النموذج */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+textarea,
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    background-color: #009688;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #00796b;
+}
+
+/* شريط تحميل */
+progress {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* تنسيق الجدول لصفحة الإعلانات */
+.ads-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.ads-table, th, td {
+    border: 1px solid #ddd;
+    text-align: center; /* محاذاة النص داخل الجداول */
+}
+
+th, td {
+    padding: 15px;
+    font-size: 16px;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #009688;
+    color: white;
+    position: sticky; /* لجعل العنوان ثابت أثناء التمرير */
+    top: 0;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e0f2f1;
+    cursor: pointer; /* تغيير المؤشر عند تمرير الماوس */
+}
+
+/* الروابط */
+a {
+    color: #009688;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* الفوتر */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* تنسيق إضافي لجعل الجداول أكثر جاذبية */
+.highlight {
+    background-color: #e0f7fa;
+    font-weight: bold;
+}

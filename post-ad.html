@@ -1,0 +1,133 @@
+ <!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="منصة إعلانات مجانية لعرض الإعلانات التجارية، العقارية، والخدمية بسهولة وسرعة. انشر إعلانك الآن وابدأ بالتواصل مع جمهور واسع. أفضل منصة للإعلانات المحلية في مختلف المجالات.">
+<title>منصة إعلانات مجانية| انشر إعلانك | إعلانات تجارية، عقارية، وخدمية</title>
+
+    <link rel="stylesheet" href="style.css">
+
+      <!-- رابط إلى manifest.json -->
+  <link rel="manifest" href="/manifest.json">
+
+
+    
+    <style>
+        header {
+            background-color: red;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li {
+    display: inline;
+    margin: 0 09px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+    </style>
+    
+</head>
+<body>
+
+<nav>
+            <ul>
+                <li><a href="index.html">الصفحة الرئيسية</a></li>
+                <li><a href="ads.html">تصفح إعلان</a></li>
+            
+            </ul>
+</nav>
+
+
+
+
+    
+    <h1>إضافة إعلان جديد</h1>
+    <form id="postAdForm">
+        <input type="text" id="adTitle" placeholder="عنوان الإعلان" required />
+        <textarea id="adDescription" placeholder="وصف الإعلان" required></textarea>
+        <input type="text" id="adPrice" placeholder="السعر" required />
+        <input type="text" id="adContactInfo" placeholder="معلومات الاتصال" required />
+        <select id="adType" required>
+            <option value="">نوع الإعلان</option>
+            <option value="خدمية">خدمية</option>
+            <option value="تجارية">تجارية</option>
+            <option value="عقارية">عقارية</option>
+        </select>
+        <input type="file" id="adImage" required />
+<progress id="uploadProgress" value="0" max="100" style="display: none;"></progress>
+        
+        <button type="submit">إرسال الإعلان</button>
+
+        
+        
+    </form>
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+
+    
+    <script src="firebase-config.js"></script>
+    <script src="post-ad.js"></script>
+
+    
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(function(registration) {
+        console.log('تم تسجيل Service Worker بنجاح:', registration);
+      })
+      .catch(function(error) {
+        console.log('فشل في تسجيل Service Worker:', error);
+      });
+  }
+
+  // طلب إذن الإشعارات
+  if ('Notification' in window && navigator.serviceWorker) {
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        console.log('تم منح إذن الإشعارات.');
+      } else {
+        console.log('تم رفض إذن الإشعارات.');
+      }
+    });
+  }
+
+
+
+
+</script>
+    
+    
+    
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="منصة إعلانات مجانية لعرض الإعلانات التجارية، العقارية، والخدمية بسهولة وسرعة. انشر إعلانك الآن وابدأ بالتواصل مع جمهور واسع. أفضل منصة للإعلانات المحلية في مختلف المجالات.">
+<title>منصة إعلانات مجانية| تصفح الاعلانات| عرض الاعلانات | إعلانات تجارية، عقارية، وخدمية</title>
+
+    <link rel="stylesheet" href="style.css">
+
+  <!-- رابط إلى manifest.json -->
+  <link rel="manifest" href="manifest.json">
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+
+
+
+
+
+<style>
+
+
+        .ads-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px;
+}
+
+.ad-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ad-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.ad-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ad-info h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.ad-info p {
+    margin: 0;
+}
+    
+
+
+.ad-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ad-actions button {
+    padding: 10px 15px;
+    background-color: #009688;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ad-actions button:hover {
+    background-color: #00796b;
+}
+
+                               .ad-container {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0  2px  5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 20px auto;
+                               }
+
+.ad-container:nth-child(4n+1) {
+    background-color: #f9c2ff; /* لون أرجواني فاتح */
+}
+
+.ad-container:nth-child(4n+2) {
+    background-color: #c2e9ff; /* لون أزرق فاتح */
+}
+
+.ad-container:nth-child(4n+3) {
+    background-color: #d4ffb3; /* لون أخضر فاتح */
+}
+
+.ad-container:nth-child(4n+4) {
+    background-color: #ffdfb3; /* لون برتقالي فاتح */
+}
+
+
+    
+.ad-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.ad-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.ad-container p {
+    margin: 5px 0;
+}
+
+.ad-container button {
+    padding: 20px;
+    margin-right: 10px;
+    background-color: #009688;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ad-container button:hover {
+    background-color: #00796b;
+}
+
+    
+/* إضافة تفاعل الأزرار */
+button:nth-child(odd) {
+    background-color: #28a745; /* لون زر لايك */
+    color: #fff;
+}
+
+button:nth-child(even) {
+    background-color: #dc3545; /* لون زر ديسلايك */
+    color: #fff;
+}
+
+.ad-container .chat-container {
+    margin-top: 25px;
+}
+
+    header {
+            background-color: gold;
+            color: white;
+            padding: 15px;
+            text-align: center;
+    }
+
+nav {
+            text-align: center;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+.chat-messages div {
+            margin-bottom: 5px;
+            padding: 5px;
+            background-color: #f9f9f9;
+            border-radius: 9px;
+            box-shadow:  10px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+    }
+
+    
+
+</style>
+</head>
+<body>
+    <header>
+        <h2>الإعلانات المعروضة</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">الصفحة الرئيسية</a></li>
+                <li><a href="post-ad.html">نشر إعلان</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- جدول الإعلانات -->
+        <div class="ads-list" id="approvedAdsContainer">
+    <!-- سيتم توليد الإعلانات هنا -->
+</div>
+
+    </div>
+
+    <footer>© 2024 جميع الحقوق محفوظة لمنصة الإعلانات</footer>
+
+    <!-- روابط مكتبات Firebase -->
+    
+
+
+
+
+    
+
+    <!-- ملفات جافاسكربت الخاصة بالتطبيق -->
+    <script src="firebase-config.js"></script>
+    <script src="ads.js"></script>
+
+    <script>
+        function renderChatInterface(adId) {
+            return `
+                <div class="chat-container">
+                    <div id="chat-messages-${adId}" class="chat-messages"></div>
+                    <input type="text" id="messageInput-${adId}" placeholder="اكتب رسالتك هنا..." />
+                    <button id="sendButton-${adId}" onclick="sendMessage('${adId}')">إرسال</button>
+                    <button id="deleteAllButton-${adId}" onclick="deleteAllMessages('${adId}')">حذف</button>
+                </div>
+            `;
+        }
+    </script>
+
+<script>
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(function(registration) {
+        console.log('تم تسجيل Service Worker بنجاح:', registration);
+      })
+      .catch(function(error) {
+        console.log('فشل في تسجيل Service Worker:', error);
+      });
+  }
+
+  // طلب إذن الإشعارات
+  if ('Notification' in window && navigator.serviceWorker) {
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        console.log('تم منح إذن الإشعارات.');
+      } else {
+        console.log('تم رفض إذن الإشعارات.');
+      }
+    });
+  }
+</script>
+
+    
+       
+
+
+    
+</body>
+</html>

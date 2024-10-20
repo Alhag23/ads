@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="منصة إعلانات مجانية لعرض الإعلانات التجارية، العقارية، والخدمية بسهولة وسرعة. <<واذن في الناس بالحج يأتوك رجالا وعلى كل ضامر يأتين من كل فج عميق >> . انشر إعلانك الآن وابدأ بالتواصل مع جمهور واسع. أفضل منصة للإعلانات المحلية في مختلف المجالات.">
+<title>منصة إعلانات مجانية | إعلانات تجارية، عقارية، وخدمية</title>
+
+      <!-- رابط إلى manifest.json -->
+  <link rel="manifest" href="manifest.json">
+    <script>
+        if ('Notification' in window && Notification.permission === 'granted') {
+  console.log('إشعارات مفعلة.');
+} else {
+  console.log('إشعارات غير مفعلة أو مرفوضة.');
+}
+    </script>    
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+    <!-- ملفات جافاسكربت الخاصة بالتطبيق -->
+    <script src="firebase-config.js"></script>
+    
+  
+
+
+
+
+    <script>
+
+
+
+
+        // في index.html
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(function(registration) {
+      console.log('تم تسجيل Service Worker بنجاح:', registration);
+    })
+    .catch(function(error) {
+      console.log('فشل في تسجيل Service Worker:', error);
+    });
+}
+
+
+
+  // طلب إذن الإشعارات
+  if ('Notification' in window && navigator.serviceWorker) {
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        console.log('تم منح إذن الإشعارات.');
+      } else {
+        console.log('تم رفض إذن الإشعارات.');
+      }
+    });
+  }
+
+
+
+</script>
+
+
+        
+
+
+    
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+        }
+        header {
+            background-color: #00ffff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card h2 {
+            margin-bottom: 20px;
+        }
+        .card p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color:#333;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+        .btn:hover {
+            background-color: #555;
+        }
+       h2 {
+           background-color:green ;
+       }
+        h1 {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>منصة الإعلانات</h1>
+    </header>
+    <nav>
+        
+        <a href="post-ad.html">نشر إعلان</a>
+        <a href="admin.html"> ادارة  الإعلانات</a>
+        <a href="ads.html">عرض الإعلانات</a>
+    
+    </nav>
+    <div class="container">
+        <div class="card">
+ <h2>مرحبًا بكم في منصتكم الإعلانية الرائدة</h2>
+            <p>
+        
+<h3>
+هنا تجدون المكان المثالي لتصفح الإعلانات اليومية في مختلف المجالات؛ سواء كانت خدمية، تجارية، عقارية، أو غيرها. تمتاز منصتنا بسهولة الاستخدام وسرعة الوصول إلى جمهور واسع ومتنوع.
+    <hr>
+<b>
+لأصحاب الأعمال والتجار والباحثين عن فرص عمل : انشروا إعلاناتكم الخاصة والمميزة اليوم لتصل إلى عملائكم المستهدفين بكل سهولة. إعلاناتكم ستخضع لمراجعة إدارة المنصة لضمان الجودة والمصداقية، مما يضمن لكم ظهورها بأفضل صورة أمام جمهورنا الواسع.
+</b>
+    <hr>
+للزوار: تابعوا منصتنا يوميًا للاطلاع على أحدث العروض والإعلانات المثيرة للاهتمام. تفاعلوا مع الإعلانات، واستفيدوا من الدردشة المباشرة مع أصحابها لتلبية احتياجاتكم بأسرع وقت.
+</h3>
+<hr>
+                <h2>
+        انشر إعلانك الآن واجذب انتباه الجميع بلمسة واحدة
+</h2>
+            </p>
+            <a href="ads.html" class="btn">تصفح الإعلانات</a>
+            <a href="post-ad.html" class="btn">نشر إعلان</a>
+        </div>
+        <div class="card">
+            <h2>إدارة الإعلانات</h2>
+            <p>
+                يمكن للإدارة مراجعة الإعلانات المعلقة والموافقة عليها أو رفضها قبل عرضها في صفحة الإعلانات.
+            </p>
+            
+        </div>
+    </div>
+</body>
+</html> 
+
+
