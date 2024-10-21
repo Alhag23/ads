@@ -20,7 +20,7 @@ function scheduleDailyNotification() {
   const now = new Date();
   
   const morningTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 4, 30, 0);
-  const eveningTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 1, 3, 0);
+  const eveningTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 21, 15, 0);
 
   if (morningTime <= now) morningTime.setDate(morningTime.getDate() + 1);
   if (eveningTime <= now) eveningTime.setDate(eveningTime.getDate() + 1);
@@ -45,7 +45,7 @@ function scheduleDailyNotification() {
 function checkAndSendNotifications() {
   const now = new Date();
   const morningTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 4, 30, 0);
-  const eveningTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 1, 3, 0);
+  const eveningTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 21, 15, 0);
 
   // تحقق إذا كان الوقت الآن هو الصباح
   if (now >= morningTime && now < (morningTime.getTime() + 60000)) {
